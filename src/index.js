@@ -61,9 +61,9 @@ async function genCode(project_id, _id) {
 }
 
 module.exports = function cli() {
-  inquirer.prompt([{ name: "apiUrl" }]).then((answers) => {
-    const { apiUrl } = answers;
-    const arr = apiUrl.split("/");
+  inquirer.prompt([{ name: "yapiUrl" }]).then((answers) => {
+    const { yapiUrl } = answers;
+    const arr = yapiUrl.split("/");
     const _id = arr[7];
     const project_id = arr[4];
     genCode(project_id, _id);
