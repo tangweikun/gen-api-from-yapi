@@ -1,0 +1,9 @@
+{
+  "name": "gen-api-from-yapi",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "bin": {
+    "gen-api-from-yapi": "bin/cli.js"
+  },
+  "license": "MIT"
+}
