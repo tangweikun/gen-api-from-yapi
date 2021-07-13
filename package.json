@@ -5,5 +5,10 @@
   "bin": {
     "gen-api-from-yapi": "bin/cli.js"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "inquirer": "^8.1.1",
+    "lodash": "^4.17.21"
+  }
 }
