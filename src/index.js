@@ -52,9 +52,8 @@ async function genCode(project_id, _id) {
     const fileContent = `${globalCode}${commentCode}${typeDefinitionCode}${functionCode}`;
 
     const fileName = `${outputDir}/${outputFile}`;
-    const baseSrc = path.resolve(__dirname);
-    fs.mkdirSync(path.join(baseSrc, outputDir), { recursive: true });
-    fs.writeFileSync(path.join(baseSrc, fileName), fileContent);
+    fs.mkdirSync(path.join(process.cwd(), outputDir), { recursive: true });
+    fs.writeFileSync(path.join(process.cwd(), fileName), fileContent);
   } else {
     console.log(`Error: ${errmsg}`);
   }
