@@ -52,6 +52,7 @@ async function genCode(project_id, _id) {
     const fileContent = `${globalCode}${commentCode}${typeDefinitionCode}${functionCode}`;
 
     const fileName = `${outputDir}/${outputFile}`;
+    console.log("文件路径：" + path.join(process.cwd(), outputDir));
     fs.mkdirSync(path.join(process.cwd(), outputDir), { recursive: true });
     fs.writeFileSync(path.join(process.cwd(), fileName), fileContent);
   } else {
