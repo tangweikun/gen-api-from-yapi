@@ -1,7 +1,7 @@
 module.exports = {
   server: "http://192.168.192.132:3000",
-  outputDir: "../output",
-  outputFile: "foo.ts",
+  outputDir: "../yapi",
+  outputFile: "api.ts",
   projectConfig: {
     183: {
       token: "8974c416a008eddacc9f29b535a743889df8f0891c30f2dea3b70a3c18084bdc",

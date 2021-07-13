@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const inquirer = require("inquirer");
 const { last, get } = require("lodash");
-const config = require("./yapi-gen.config.js");
+const config = require("./config.js");
 
 // 从yapi获取接口信息数据
 function getApiDataFromYapi(_id, token, server) {
