@@ -30,7 +30,9 @@ async function genCode(project_id, _id) {
     const authorNameComment = `// 接口对接人: ${username}`;
     const functionName = `_${last(apiPath.split("/"))}`;
 
-    const queryTypes = req_query.map((x) => `${x.name}: any`);
+    const queryTypes = req_query.map((x) =>
+      x.required === "1" ? `${x.name}: any` : `${x.name}?: any`
+    );
     const query = `query: { ${queryTypes.join("; ")} }`;
 
     const firstLine = `export async function ${functionName}(${query}) {`;
