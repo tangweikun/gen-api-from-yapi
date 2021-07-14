@@ -1,11 +1,22 @@
 {
   "name": "gen-api-from-yapi",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "src/index.js",
   "bin": {
     "gen-api-from-yapi": "bin/cli.js"
   },
   "license": "MIT",
+  "homepage": "https://github.com/tangweikun/gen-api-from-yapi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangweikun/gen-api-from-yapi.git"
+  },
+  "author": "tangweikun",
+  "keywords": [
+    "code generation",
+    "api",
+    "yapi"
+  ],
   "dependencies": {
     "axios": "^0.21.1",
     "inquirer": "^8.1.1",

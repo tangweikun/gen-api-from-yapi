@@ -21,8 +21,10 @@ npm i -g gen-api-from-yapi
 
 ![](./images/step3.jpg)
 
-Step4: 输入接口文档地址，等待生成
+### Step4: 输入接口文档地址，等待生成
+
 ![](./images/step4.jpg)
 
-Step5: 在对应文件路径中找到生成的文件
+### Step5: 在对应文件路径中找到生成的文件
+
 ![](./images/step5.jpg)
