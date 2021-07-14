@@ -4,6 +4,7 @@ const path = require("path");
 const inquirer = require("inquirer");
 const { last, get, upperFirst } = require("lodash");
 const { SERVER, OUTPUT_DIR, OUTPUT_FILE, PROJECT_CONFIG } = require("./config.js");
+const { logSuccess, logError, logInfo, logWarn } = require("./log");
 
 // 从yapi获取接口信息数据
 function getApiDataFromYapi(_id, token) {
@@ -37,14 +38,14 @@ function genApi({ functionName, typeName, prefix, apiPath, method }) {
 // 将生成内容写入文件
 function createFileAndWriteContent(fileContent) {
   const fileName = `${OUTPUT_DIR}/${OUTPUT_FILE}`;
-  console.log("文件路径：" + path.join(process.cwd(), OUTPUT_DIR));
   fs.mkdirSync(path.join(process.cwd(), OUTPUT_DIR), { recursive: true });
   fs.writeFileSync(path.join(process.cwd(), fileName), fileContent);
+  logSuccess(`文件路径：${path.join(process.cwd(), fileName)}`);
 }
 
+// 生成文件内容
 async function genContent(project_id, _id) {
-  const { token, prefix } = PROJECT_CONFIG[project_id];
-
+  const { token, prefix } = get(PROJECT_CONFIG, project_id, {});
   const apiData = await getApiDataFromYapi(_id, token);
   const { data, errcode, errmsg } = get(apiData, "data", {});
 
@@ -56,20 +57,26 @@ async function genContent(project_id, _id) {
     const typeName = `I${upperFirst(last(apiPath.split("/")))}`;
     const typeDefinitionCode = genTypeDefinition(typeName, req_query);
     const functionCode = genApi({ functionName, typeName, prefix, apiPath, method });
-    const fileContent = `${globalCode}${commentCode}${typeDefinitionCode}${functionCode}`;
 
-    return fileContent;
+    return `${globalCode}${commentCode}${typeDefinitionCode}${functionCode}`;
   }
 
-  console.log(`Error: ${errmsg}`);
+  logWarn(errmsg, "获取接口数据失败");
 }
 
 async function genCode(project_id, _id) {
+  logInfo("正在生成接口代码...");
   const fileContent = await genContent(project_id, _id);
-  createFileAndWriteContent(fileContent);
+  if (fileContent) {
+    createFileAndWriteContent(fileContent);
+    logSuccess("生成成功");
+  } else {
+    logError("生成失败");
+  }
 }
 
 module.exports = function cli() {
+  logInfo("请输入yapi文档URL，按回车确定");
   inquirer.prompt([{ name: "yapiUrl" }]).then((answers) => {
     const { yapiUrl } = answers;
     const arr = yapiUrl.split("/");
