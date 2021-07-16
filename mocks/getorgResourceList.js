@@ -1,0 +1,43 @@
+// http://192.168.192.132:3000/project/198/interface/api/29949
+const orgResourceList = {
+  errcode: 0,
+  errmsg: "成功！",
+  data: {
+    query_path: { path: "/v1/orgResource/list", params: [] },
+    edit_uid: 0,
+    status: "undone",
+    type: "static",
+    req_body_is_json_schema: false,
+    res_body_is_json_schema: true,
+    api_opened: false,
+    index: 0,
+    tag: ["org-resource-controller"],
+    _id: 29949,
+    method: "GET",
+    title: "查询组织资源关系列表",
+    desc: "查询组织资源关系列表",
+    path: "/v1/orgResource/list",
+    req_params: [],
+    req_body_form: [],
+    req_headers: [
+      { required: "1", _id: "60e6b578f6e9d956d48dc128", name: "userId", desc: "用户编号" },
+      { required: "1", _id: "60e6b578f6e9d956d48dc127", name: "userName", desc: "用户名" },
+    ],
+    req_query: [
+      { required: "0", _id: "60e6b578f6e9d956d48dc12b", name: "orgId", desc: "组织ID" },
+      { required: "0", _id: "60e6b578f6e9d956d48dc12a", name: "resourceId", desc: "资源ID" },
+      { required: "0", _id: "60e6b578f6e9d956d48dc129", name: "resourceType", desc: "资源类型" },
+    ],
+    req_body_type: "raw",
+    res_body_type: "json",
+    res_body:
+      '{\n  "type": "object",\n  "properties": {\n    "code": {\n      "type": "integer",\n      "format": "int32",\n      "description": "状态码",\n      "allowEmptyValue": false\n    },\n    "data": {\n      "type": "array",\n      "description": "返回数据",\n      "allowEmptyValue": false,\n      "items": {\n        "type": "object",\n        "properties": {\n          "crtTime": {\n            "type": "string",\n            "description": "创建时间",\n            "allowEmptyValue": false\n          },\n          "crtUser": {\n            "type": "string",\n            "description": "创建者",\n            "allowEmptyValue": false\n          },\n          "id": {\n            "type": "string",\n            "description": "ID主键",\n            "allowEmptyValue": false\n          },\n          "orgId": {\n            "type": "string",\n            "description": "组织ID",\n            "allowEmptyValue": false\n          },\n          "resourceId": {\n            "type": "string",\n            "description": "资源ID",\n            "allowEmptyValue": false\n          },\n          "resourceType": {\n            "type": "string",\n            "description": "资源类型",\n            "allowEmptyValue": false\n          },\n          "updateTime": {\n            "type": "string",\n            "description": "更新时间",\n            "allowEmptyValue": false\n          },\n          "updateUser": {\n            "type": "string",\n            "description": "更新者",\n            "allowEmptyValue": false\n          }\n        },\n        "title": "OrgResourceVO",\n        "description": "组织资源关系VO",\n        "$$ref": "#/definitions/OrgResourceVO"\n      }\n    },\n    "detailMessage": {\n      "type": "string",\n      "description": "详细信息",\n      "allowEmptyValue": false\n    },\n    "message": {\n      "type": "string",\n      "description": "返回信息",\n      "allowEmptyValue": false\n    }\n  },\n  "title": "返回对象«List«OrgResourceVO»»",\n  "$$ref": "#/definitions/返回对象«List«OrgResourceVO»»"\n}',
+    project_id: 198,
+    catid: 9061,
+    uid: 408,
+    add_time: 1625732472,
+    up_time: 1625732472,
+    __v: 0,
+    username: "zhangjiacheng",
+  },
+};
