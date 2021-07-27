@@ -37,5 +37,10 @@ module.exports = {
       prefix: "/api/data-exchange",
       desc: "计时第三方服务",
     },
+    248: {
+      token: "f2f1f69a5574ac810e9bbaefa3a7f2ead163d5d074b634a414b7f74b44e748c8",
+      prefix: "/api/video-face-adv",
+      desc: "互联网广告业务",
+    },
   },
 };
